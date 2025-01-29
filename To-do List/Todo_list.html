@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+
+<body>
+  <center><h1>Welcome to Todo List</h1></center> 
+    <div id="container">
+        <input type="text" id="sap" placeholder="Add a Task">
+        <button id="add" onclick="addTask()">Add</button>
+    </div>
+
+    <script> 
+        var input1 = document.getElementById("sap");
+        var up = document.getElementById("container");
+
+
+        function addTask(){
+            var listitem = document.createElement("div");
+            listitem.className = "list-item"; // Add class for styling if needed
+            listitem.innerHTML = `
+                <span>${input1.value}</span>
+                <button id="button" onclick="removeTask(this)">Delete</button>
+                <button id="edit" onclick="edittask(this)">Edit</button>
+            `;
+            up.append(listitem);
+        }
+
+        function deleteTask(){
+            var items = document.querySelectorAll(".list-item");
+            var taskToDelete = input1.value.trim();
+
+            items.forEach(function(item) {
+                var taskText = item.querySelector("span").innerText;
+                if (taskText === taskToDelete) {
+                    item.remove(); // Remove the task if it matches the input
+                }
+            });
+        }
+
+        // You can also keep the delete logic for individual task buttons
+        function removeTask(button) {
+            button.parentElement.remove();
+        }
+
+        function edittask(button){
+var listitem= button.parentElement; 
+var taskitem=listitem.querySelector("span");
+var currenttext=taskitem.innerText;
+taskitem.innerHTML=`<input type="text" id="editable" value='${currenttext}'/>`  
+button.innerHTML = "Save";
+            button.onclick = function() {
+                savetask(this);
+            };
+        }
+
+    function savetask(button){
+var listitem=button.parentElement; //get parent element
+var editinput=listitem.querySelector('#editable');
+var update=editinput.value;
+
+editinput.outerHTML=`<span>${update}</span>`
+button.innerText = "Edit";
+            button.onclick = function() {
+                edittask(this);
+            };
+    }
+    </script>
+</body>
+</html>

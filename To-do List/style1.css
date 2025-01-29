@@ -1,0 +1,53 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+/* h1{
+    text-align: center;
+} */
+
+#sap{
+    margin: 25px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 13px;
+}
+#add {
+    margin: 5px;
+    padding: 5px;
+    background-color: #218838;
+    color: white;  
+    border: 1px solid; 
+    border-radius: 5px;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#container {
+    text-align: center;
+}
+
+#button{
+    background-color: #dc3545;
+    color: azure;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+#edit{
+    background-color: cornflowerblue;
+    color: azure;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid;
+}
+
+#editable{
+    background-color: white;
+    padding:5px;
+    border-radius: 5px;
+}
